@@ -1,40 +1,34 @@
 var newPhrase = prompt("Qual o time que você torce?");
+var newPhraseCriptografada = '';
+function cipher(phrase) {
 
-
-function cipher (Phrase) {
-
-var newarray = [];
-var formula = [];
 var code = [];
-var deslocamento ="";
 
-for (var i = 0;i < newPhrase.lenght; i++){
-codeASCSII = newPhrase.toUpper.case().charcodAt (i);
-formula = ((CodeASCSII - 65 + 33) % 26 + 65);
-code = String.fromCharCode(formula);
-var newPhraseCriptografada = deslocamento += code;
-console.log(newPhraseCriptografada);
+for (var i = 0;i < phrase.length; i++) {
+ var codeASCII = phrase.toUpperCase().charCodeAt(i);
+ if(codeASCII <= 90){}
+  var formula = ((codeASCII - 65 + 33) % 26 + 65);
+ code.push(String.fromCharCode(formula));
+ newPhraseCriptografada = code.toString().split(',').join('');
+}
 
-  }
-  alert(newPhraseCriptografada);
-  return newPhaseCriptografada;
+document.write("Sua mensagem criptografada: " + newPhraseCriptografada)
 }
 cipher(newPhrase);
 
-function decipher (phrase) {
 
-var newarray = [];
-var formula = [];
+function decipher(phrase) {
+
 var code = [];
-var deslocamento ="";
 
-for (var i = 0;i < phrase.length; i++){
-codeASCSII = phrase.toUpperCase().charCodeAt(i);
-formula = ((codeASCSII + 65 - 33) % 26 + 65);
-code = String.fromCharCode(formula);
-deslocamento += code;
-  }
-  alert(deslocamento);
-  return(deslocamento);
-
+for (var i = 0;i < phrase.length; i++) {
+ var codeASCII = phrase.toUpperCase().charCodeAt(i);
+  var formula = ((codeASCII - 65 - 7 + 26) % 26 + 65);
+ code.push(String.fromCharCode(formula));
+ var newPhraseDescriptografada = code.toString().split(',').join('');
 }
+
+document.write("Sua mensagem descriptografada: " + newPhraseDescriptografada);
+}
+
+decipher(newPhraseCriptografada)
